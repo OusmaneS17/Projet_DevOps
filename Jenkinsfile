@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Récupération du code') {
             steps {
-                git branch: 'main', url: 'https://github.com/OusmaneS17/ton-repo-django.git'
+                git branch: 'main', url: 'https://github.com/OusmaneS17/Projet_DevOps.git'
             }
         }
 
