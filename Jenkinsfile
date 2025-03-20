@@ -4,14 +4,6 @@ pipeline {
     environment {
         PYTHON_EXE = "C:\\Users\\o.sow\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
         VENV_DIR = 'venv'
-
-        // Configuration MySQL sous XAMPP
-        DB_HOST = "127.0.0.1"
-        DB_PORT = "3306"
-        DB_NAME = "kssm"
-        DB_USER = "jenkins"
-        DB_PASS = "jenkins_password"
-        MYSQL_PATH = "C:\\xampp\\mysql\\bin\\mysql.exe"
     }
 
     stages {
