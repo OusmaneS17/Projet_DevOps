@@ -2,8 +2,16 @@ pipeline {
     agent any
 
     environment {
-        PYTHON_EXE="C:\\Users\\o.sow\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
-        VENV_DIR= 'venv'
+        PYTHON_EXE = "C:\\Users\\o.sow\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        VENV_DIR = 'venv'
+
+        // Configuration MySQL sous XAMPP
+        DB_HOST = "127.0.0.1"
+        DB_PORT = "3306"
+        DB_NAME = "kssm"
+        DB_USER = "jenkins"
+        DB_PASS = "jenkins_password"
+        MYSQL_PATH = "C:\\xampp\\mysql\\bin\\mysql.exe"
     }
 
     stages {
@@ -22,22 +30,36 @@ pipeline {
             }
         }
 
+        stage('Vérification de la connexion MySQL') {
+            steps {
+                script {
+                    def dbCheck = bat(
+                        script: "\"%MYSQL_PATH%\" -h%DB_HOST% -P%DB_PORT% -u%DB_USER% -p%DB_PASS% -e \"SELECT 1 FROM DUAL;\"",
+                        returnStatus: true
+                    )
+                    if (dbCheck != 0) {
+                        error "Échec de connexion à MySQL. Vérifiez si XAMPP est démarré et si les identifiants sont corrects."
+                    }
+                }
+            }
+        }
+
         stage('Migrations') {
             steps {
-                bat '%VENV_DIR%\\Scripts\\python manage.py makemigrations'
-                bat '%VENV_DIR%\\Scripts\\python manage.py migrate'
+                bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py makemigrations'
+                bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py migrate'
             }
         }
 
         stage('Tests unitaires') {
             steps {
-                bat '%VENV_DIR%\\Scripts\\python manage.py test'
+                bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py test'
             }
         }
 
         stage('Démarrage du serveur') {
             steps {
-                bat '%VENV_DIR%\\Scripts\\python manage.py runserver 0.0.0.0:8000'
+                bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py runserver 0.0.0.0:8000'
             }
         }
     }

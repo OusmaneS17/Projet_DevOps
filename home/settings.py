@@ -81,10 +81,10 @@ WSGI_APPLICATION = "home.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'KSSM',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'kssm',
+        'USER': 'jenkins',
+        'PASSWORD': 'jenkins_password',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
