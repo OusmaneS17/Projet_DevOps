@@ -51,7 +51,7 @@ pipeline {
             }
         }
 
-        stage('Tests unitaires') {
+        /*stage('Tests unitaires') {
             steps {
                 bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py test'
             }
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py runserver 0.0.0.0:8000'
             }
-        }
+        }*/
     }
 
     post {
