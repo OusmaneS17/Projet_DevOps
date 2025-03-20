@@ -1,0 +1,918 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Délices de Cajou </title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="{% static 'images/logo.png' %}">
+  <link rel="preload" as="image" href="{% static 'images/hero-banner-1.jpg' %}">
+  <link rel="preload" as="image" href="{% static 'images/hero-banner-2.jpg' %}">
+  <link rel="preload" as="image" href="{% static 'images/hero-banner-3.jpg' %}">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header">
+
+    <div class="header-top" data-header>
+      <div class="container">
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="input-wrapper">
+          <input type="search" name="search" placeholder="Search product" class="search-field">
+
+          <button class="search-submit" aria-label="search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <div class="header-actions">
+
+          <button class="header-action-btn" aria-label="user">
+            <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+          </button>
+
+          <button class="header-action-btn" aria-label="favourite item">
+            <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+
+            <span class="btn-badge">0</span>
+          </button>
+
+        </div>
+        
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link has-after">Home</a>
+            </li>
+
+            <li>
+              <a href="#collection" class="navbar-link has-after">Collection</a>
+            </li>
+
+            <li>
+              <a href="#shop" class="navbar-link has-after">Shop</a>
+            </li>
+
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <!-- 
+    - #MOBILE NAVBAR
+  -->
+
+  <div class="sidebar">
+    <div class="mobile-navbar" data-navbar>
+
+      <div class="wrapper">
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+
+        <li>
+          <a href="#home" class="navbar-link" data-nav-link>Home</a>
+        </li>
+
+        <li>
+          <a href="#collection" class="navbar-link" data-nav-link>Collection</a>
+        </li>
+
+        <li>
+          <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
+        </li>
+
+
+      </ul>
+
+    </div>
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+  </div>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="hero" data-section>
+        <div class="container">
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('{% static "images/hero-banner-1.jpg" %}')">
+          
+                  <div class="card-content">
+          
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+          
+                      <p style="color: rgb(0, 0, 0);">
+                          Un chocolat raffiné, sublimé par la richesse des noix de cajou, pour une expérience gourmande inoubliable.
+                      </p>
+          
+                      <p class="price">À partir de 2 500 FCFA</p>
+          
+                      <a href="#" class="btn btn-primary">Déguster</a>
+          
+                  </div>
+          
+              </div>
+            </li>
+          
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('{% static "images/hero-banner-2.jpg" %}')">
+          
+                  <div class="card-content">
+          
+                      <h1 class="h1 hero-title">
+                          Redécouvrez la <br>
+                          Gourmandise Authentique
+                      </h1>
+                      <br>
+                      <br>
+                      <br>
+          
+                      <p style="color: rgb(255, 255, 255);">
+                          Confectionné avec des ingrédients naturels et sans additifs, notre chocolat aux noix de cajou allie saveur et bienfaits.
+                      </p>
+          
+                      <p class="price">À partir de 2 500 FCFA</p>
+          
+                      <a href="#" class="btn btn-primary">Déguster</a>
+          
+                  </div>
+          
+              </div>
+            </li>
+          
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('{% static "images/hero-banner-3.jpg" %}')">
+          
+                  <div class="card-content">
+          
+                      <h1 style="color: rgb(255, 255, 255);">
+                          Découvrez l'Excellence <br>
+                          du Chocolat aux Noix de Cajou
+                      </h1>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+          
+                      <p style="color: rgb(255, 255, 255);">
+                          Élaboré avec des ingrédients naturels et sans additifs, notre chocolat allie gourmandise et bienfaits.
+                      </p>
+          
+                      <p style="color: rgb(255, 255, 255);">À partir de 2 500 FCFA</p>
+          
+                      <a href="#" class="btn btn-primary">Déguster</a>
+          
+                  </div>
+          
+              </div>
+          </li>          
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #COLLECTION
+      -->
+
+      <section class="section collection" id="collection" aria-label="collection" data-section>
+        <div class="container">
+
+          <ul class="collection-list">
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+          
+                  <h2 class="h2 card-title">Collection Été</h2>
+          
+                  <p class="card-text">À partir de seulement 2 500 FCFA</p>
+          
+                  <a href="#" class="btn-link">
+                      <span class="span">Découvrir</span>
+          
+                      <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a>
+          
+                  <div class="has-bg-image" style="background-image: url('{% static "images/collection-1.jpg" %}')"></div>
+          
+              </div>
+            </li>
+          
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+          
+                  <h2 class="h2 card-title">Nouveautés Gourmandes</h2>
+          
+                  <p class="card-text">Savourez l’alliance parfaite du chocolat et de la noix de cajou</p>
+          
+                  <a href="#" class="btn-link">
+                      <span class="span">Découvrir</span>
+          
+                      <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a>
+          
+                  <div class="has-bg-image" style="background-image: url('{% static "images/collection-2.jpg" %}')"></div>
+          
+              </div>
+            </li>
+          
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+          
+                  <h2 class="h2 card-title">1 acheté = 1 offert</h2>
+          
+                  <p class="card-text">À partir de 2 500 FCFA</p>
+          
+                  <a href="#" class="btn-link">
+                      <span class="span">Découvrir</span>
+          
+                      <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a>
+          
+                  <div class="has-bg-image" style="background-image: url('{% static "images/collection-3.jpg" %}')"></div>
+          
+              </div>
+            </li>
+          
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SHOP
+      -->
+
+      <section class="section shop" id="shop" aria-label="shop" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Nos produits</h2>
+
+            <a href="#" class="btn-link">
+              <span class="span">Voir tous les produits</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-01.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Facial cleanser" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">3 000 FCFA</del>
+
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">50 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-02.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Bio-shroom Rejuvenating Serum" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">100 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-03.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Coffee Bean Caffeine Eye Cream" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">150 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-04.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Facial cleanser" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">75 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-05.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Coffee Bean Caffeine Eye Cream" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">3 000 FCFA</del>
+
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">67 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{% static 'images/product-06.jpg' %}" width="540" height="720" loading="lazy"
+                    alt="Facial cleanser" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">2 500 FCFA</span>
+                  </div>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">79 vues</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+    
+
+
+
+
+
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-label="feature" data-section>
+        <div class="container">
+    
+            <h2 class="h2-large section-title">Pourquoi choisir Délices de Cajou ?</h2>
+    
+            <ul class="flex-list">
+    
+                <li class="flex-item">
+                    <div class="feature-card">
+    
+                        <img src="./assets/images/feature-1.jpg" width="204" height="236" loading="lazy" alt="Pureté garantie"
+                            class="card-icon">
+    
+                        <h3 class="h3 card-title">Pureté garantie</h3>
+    
+                        <p class="card-text">
+                            Nos chocolats à base de noix de cajou sont élaborés avec des ingrédients 100 % naturels, sans additifs artificiels ni conservateurs. Une indulgence saine et savoureuse à chaque bouchée.
+                        </p>
+    
+                    </div>
+                </li>
+    
+                <li class="flex-item">
+                    <div class="feature-card">
+    
+                        <img src="{% static 'images/feature-1.jpg' %}" width="204" height="236" loading="lazy"
+                            alt="Sans cruauté" class="card-icon">
+    
+                        <h3 class="h3 card-title">Sans cruauté</h3>
+    
+                        <p class="card-text">
+                            Nos produits sont fabriqués de manière éthique et respectueuse de l’environnement, sans aucun test sur les animaux. Dégustez votre chocolat en toute sérénité !
+                        </p>
+    
+                    </div>
+                </li>
+    
+                <li class="flex-item">
+                    <div class="feature-card">
+    
+                        <img src="{% static 'images/feature-3.jpg' %}" width="204" height="236" loading="lazy"
+                            alt="Ingrédients soigneusement sélectionnés" class="card-icon">
+    
+                        <h3 class="h3 card-title">Ingrédients soigneusement sélectionnés</h3>
+    
+                        <p class="card-text">
+                            Nous sélectionnons rigoureusement les meilleures noix de cajou et fèves de cacao pour garantir un goût riche et authentique, tout en soutenant les producteurs locaux.
+                        </p>
+    
+                    </div>
+                </li>
+    
+            </ul>
+    
+        </div>
+    </section>
+    
+
+
+
+
+
+ 
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" data-section>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <ul class="footer-list">
+
+          <li>
+              <p class="footer-list-title">Entreprise</p>
+          </li>
+      
+          <li>
+              <p class="footer-list-text">
+                  Trouvez un emplacement près de chez vous. Voir <a href="#" class="link">Nos magasins</a>
+              </p>
+          </li>
+      
+          <li>
+              <p class="footer-list-text bold">+221 78 531 89 88</p>
+          </li>
+      
+          <li>
+              <p class="footer-list-text">delicesdecajou@domain.com</p>
+          </li>
+      
+      </ul>
+      
+
+        <ul class="footer-list">
+
+          <li>
+              <p class="footer-list-title">Liens utiles</p>
+          </li>
+      
+          <li>
+              <a href="#" class="footer-link">Nouveaux produits</a>
+          </li>
+      
+          <li>
+              <a href="#" class="footer-link">Meilleures ventes</a>
+          </li>
+      
+          <li>
+              <a href="#" class="footer-link">Lots & Économies</a>
+          </li>
+      
+          <li>
+              <a href="#" class="footer-link">Carte-cadeau en ligne</a>
+          </li>
+      
+        </ul>
+      
+
+        <ul class="footer-list">
+
+            <li>
+                <p class="footer-list-title">Informations</p>
+            </li>
+        
+            <li>
+                <a href="#" class="footer-link">Débuter un retour</a>
+            </li>
+        
+            <li>
+                <a href="#" class="footer-link">Nous contacter</a>
+            </li>
+        
+            <li>
+                <a href="#" class="footer-link">FAQ sur la livraison</a>
+            </li>
+        
+            <li>
+                <a href="#" class="footer-link">Termes et conditions</a>
+            </li>
+        
+            <li>
+                <a href="#" class="footer-link">Politique de confidentialité</a>
+            </li>
+               
+
+        </ul>
+
+        <div class="footer-list">
+
+          <p class="newsletter-title">Bon emails.</p>
+
+          <p class="newsletter-text">
+            Entrez votre e-mail ci-dessous pour être le premier informé des nouvelles collections et des lancements de produits.
+          </p>
+
+          <form action="" class="newsletter-form">
+            <input type="email" name="email_address" placeholder="Enter your email address" required
+              class="email-field">
+
+            <button type="submit" class="btn btn-primary">s'inscrire</button>
+          </form>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div class="wrapper">
+          <p class="copyright">
+            &copy; 2025 delicesdecajou.com. All Rights Reserved.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <img src="{% static 'images/pay.png' %}" width="313" height="28" alt="available all payment method" class="w-100">
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="{% static 'js/script.js' %}" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
