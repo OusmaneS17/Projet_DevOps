@@ -22,20 +22,6 @@ pipeline {
             }
         }
 
-        stage('Vérification de la connexion MySQL') {
-            steps {
-                script {
-                    def dbCheck = bat(
-                        script: "\"%MYSQL_PATH%\" -h%DB_HOST% -P%DB_PORT% -u%DB_USER% -p%DB_PASS% -e \"SELECT 1 FROM DUAL;\"",
-                        returnStatus: true
-                    )
-                    if (dbCheck != 0) {
-                        error "Échec de connexion à MySQL. Vérifiez si XAMPP est démarré et si les identifiants sont corrects."
-                    }
-                }
-            }
-        }
-
         stage('Migrations') {
             steps {
                 bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py makemigrations'
