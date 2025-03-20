@@ -16,8 +16,9 @@ pipeline {
         stage('Installation des dépendances') {
             steps {
                 bat '%PYTHON_EXE% -m venv %VENV_DIR%'
-                bat '%VENV_DIR%\\Scripts\\pip install --upgrade pip'
-                bat '%VENV_DIR%\\Scripts\\pip install -r requirements.txt'
+                bat 'call %VENV_DIR%\\Scripts\\activate && python -m pip install --upgrade pip || exit 0'
+                bat 'call %VENV_DIR%\\Scripts\\activate && pip install -r requirements.txt'
+                bat 'call %VENV_DIR%\\Scripts\\activate && pip list'
             }
         }
 
