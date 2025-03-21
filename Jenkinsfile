@@ -48,7 +48,7 @@ pipeline {
             steps {
                 script {
                     echo "🐳 Construction de l’image Docker..."
-                    bat 'docker build -t ${env.DOCKER_IMAGE} .'
+                    bat 'docker build -t %DOCKER_IMAGE% .'
                 }
             }
         }
@@ -57,9 +57,9 @@ pipeline {
             steps {
                 script {
                     echo "🚀 Déploiement de l’application sur Docker..."
-                    bat 'docker stop ${env.DOCKER_CONTAINER} || true'
-                    bat 'docker rm ${env.DOCKER_CONTAINER} || true'
-                    bat 'docker run -d --name ${env.DOCKER_CONTAINER} -p 8080:8000 ${env.DOCKER_IMAGE}'
+                    bat 'docker stop %DOCKER_CONTAINER% || true'
+                    bat 'docker rm %DOCKER_CONTAINER% || true'
+                    bat 'docker run -d --name %DOCKER_CONTAINER% -p 8080:8000 %DOCKER_IMAGE%'
                 }
             }
         }
