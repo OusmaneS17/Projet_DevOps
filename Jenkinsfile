@@ -4,6 +4,9 @@ pipeline {
     environment {
         PYTHON_EXE = "C:\\Users\\o.sow\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
         VENV_DIR = 'venv'
+        DOCKER_IMAGE = "kossame17/django_image:latest"
+        DOCKER_CONTAINER = "container_app_django"
+        EMAIL_RECIPIENTS = "oussoumanesow0@gmail.com"
     }
 
     stages {
@@ -40,24 +43,53 @@ pipeline {
                 bat 'call %VENV_DIR%\\Scripts\\activate && python manage.py runserver 0.0.0.0:8000'
             }
         }*/
+
+        stage('Construction de l\'image Docker') {
+            steps {
+                script {
+                    echo "🐳 Construction de l’image Docker..."
+                    bat 'docker build -t $DOCKER_IMAGE .'
+                }
+            }
+        }
+
+        stage('Déploiement sur Docker') {
+            steps {
+                script {
+                    echo "🚀 Déploiement de l’application sur Docker..."
+                    bat 'docker stop $DOCKER_CONTAINER || true'
+                    bat 'docker rm $DOCKER_CONTAINER || true'
+                    bat 'docker run -d --name $DOCKER_CONTAINER -p 8000:8000 $DOCKER_IMAGE'
+                }
+            }
+        }
     }
 
     post {
         success {
+            echo "✅ Build et déploiement réussis !"
             emailext(
-                subject: "Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "Le build de ${env.JOB_NAME} a réussi.\nConsultez les logs ici: ${env.BUILD_URL}",
+                subject: "✅ Déploiement réussi : ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    🎉 L’application a été déployée avec succès !  
+                    🔗 Consultez les logs ici: ${env.BUILD_URL}  
+                    🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
+                """,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                to: 'oussoumanesow0@gmail.com'
+                to: env.EMAIL_RECIPIENTS
             )
         }
 
         failure {
+            echo "❌ Échec du pipeline !"
             emailext(
-                subject: "Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "Le build de ${env.JOB_NAME} a échoué.\nConsultez les logs ici: ${env.BUILD_URL}",
+                subject: "❌ Échec du déploiement : ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    ❗ Une erreur est survenue pendant le pipeline.  
+                    📜 Consultez les logs ici: ${env.BUILD_URL}
+                """,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                to: 'oussoumanesow0@gmail.com'
+                to: env.EMAIL_RECIPIENTS
             )
         }
     }
