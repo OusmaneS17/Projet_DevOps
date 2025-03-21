@@ -75,7 +75,7 @@ pipeline {
                     🔗 Consultez les logs ici: ${env.BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'DevelopersRecipientProvider']],
                 to: env.EMAIL_RECIPIENTS
             )
         }
