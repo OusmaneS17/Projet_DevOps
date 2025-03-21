@@ -59,7 +59,7 @@ pipeline {
                     echo "🚀 Déploiement de l’application sur Docker..."
                     bat 'docker stop %DOCKER_CONTAINER% || true'
                     bat 'docker rm %DOCKER_CONTAINER% || true'
-                    bat 'docker run -d --name %DOCKER_CONTAINER% -p 8080:8000 %DOCKER_IMAGE%'
+                    bat 'docker run -d --name %DOCKER_CONTAINER% -p 8000:8000 %DOCKER_IMAGE%'
                 }
             }
         }
