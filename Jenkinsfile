@@ -70,11 +70,11 @@ pipeline {
             emailext (
                 subject: "Build ${currentBuild.fullDisplayName}",
                 body: "Le build a ${currentBuild.result}. Voir les logs ici : ${env.BUILD_URL}",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                to: 'tonemail@gmail.com'
+                to: 'oussoumanesow0@gmail.com'  // Remplace ici par l'email des destinataires réels
             )
         }
     }
+
 
     /*post {
         success {
