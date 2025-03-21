@@ -4,7 +4,7 @@ pipeline {
     environment {
         PYTHON_EXE = "C:\\Users\\o.sow\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
         VENV_DIR = 'venv'
-        DOCKER_IMAGE = "kossame17/django_image:latest"
+        DOCKER_IMAGE = "django_image"
         DOCKER_CONTAINER = "container_app_django"
         EMAIL_RECIPIENTS = "oussoumanesow0@gmail.com"
     }
@@ -48,7 +48,7 @@ pipeline {
             steps {
                 script {
                     echo "🐳 Construction de l’image Docker..."
-                    bat 'docker build -t $DOCKER_IMAGE .'
+                    bat 'docker build -t ${env.DOCKER_IMAGE} .'
                 }
             }
         }
@@ -57,9 +57,9 @@ pipeline {
             steps {
                 script {
                     echo "🚀 Déploiement de l’application sur Docker..."
-                    bat 'docker stop $DOCKER_CONTAINER || true'
-                    bat 'docker rm $DOCKER_CONTAINER || true'
-                    bat 'docker run -d --name $DOCKER_CONTAINER -p 8000:8000 $DOCKER_IMAGE'
+                    bat 'docker stop ${env.DOCKER_CONTAINER} || true'
+                    bat 'docker rm ${env.DOCKER_CONTAINER} || true'
+                    bat 'docker run -d --name ${env.DOCKER_CONTAINER} -p 8080:8000 ${env.DOCKER_IMAGE}'
                 }
             }
         }
