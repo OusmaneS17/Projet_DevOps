@@ -63,15 +63,25 @@ pipeline {
                 }
             }
         }
+
+        stage('Test Email') {
+            steps {
+                script {
+                    emailext subject: 'Test Jenkins Email',
+                             body: 'Ceci est un test d\'email depuis Jenkins.',
+                             to: 'oussoumanesow0@gmail.com'
+                }
+            }
+        }
     }
 
-    post {
+    /*post {
         always {
             emailext(
-                subject: "✅ Déploiement réussi : ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                subject: "✅ Déploiement réussi : ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
                     🎉 L’application a été déployée avec succès !  
-                    🔗 Consultez les logs ici: ${env.BUILD_URL}  
+                    🔗 Consultez les logs ici: ${BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
                 to: 'oussoumanesow0@gmail.com',
@@ -80,8 +90,8 @@ pipeline {
                 mimeType: 'text/html'
             )
         }
-	}
-    
+	}*/
+
     /*post {
         success {
             echo "✅ Build et déploiement réussis !"
