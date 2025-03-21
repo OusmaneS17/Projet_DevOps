@@ -66,6 +66,23 @@ pipeline {
     }
 
     post {
+        always {
+            emailext(
+                subject: "✅ Déploiement réussi : ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    🎉 L’application a été déployée avec succès !  
+                    🔗 Consultez les logs ici: ${env.BUILD_URL}  
+                    🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
+                """,
+                to: 'oussoumanesow0@gmail.com',
+                from :'jenkins@example.com',
+                replyTo: 'jenkins@example.com',
+                mimeType: 'text/html'
+            )
+        }
+	}
+    
+    /*post {
         success {
             echo "✅ Build et déploiement réussis !"
             emailext(
@@ -96,5 +113,5 @@ pipeline {
                 mimeType: 'text/html'
             )
         }
-    }
+    }*/
 }
