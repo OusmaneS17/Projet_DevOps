@@ -6,7 +6,7 @@ pipeline {
         VENV_DIR = 'venv'
         DOCKER_IMAGE = "django_image"
         DOCKER_CONTAINER = "container_app_django"
-        EMAIL_RECIPIENTS = "osow01289@gmail.com"
+        EMAIL_RECIPIENTS = "oussoumanesow0@gmail.com"
     }
 
     stages {
@@ -69,12 +69,12 @@ pipeline {
         success {
             emailext subject: 'Pipeline Success',
                      body: 'Le pipeline a réussi.',
-                     to: 'osow01289@gmail.com'
+                     to: 'oussoumanesow0@gmail.com'
         }
         failure {
             emailext subject: 'Pipeline Failure',
                      body: 'Le pipeline a échoué.',
-                     to: 'osow01289@gmail.com'
+                     to: 'oussoumanesow0@gmail.com'
         }
     }
 
