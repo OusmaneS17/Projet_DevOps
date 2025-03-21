@@ -65,7 +65,7 @@ pipeline {
         }
     }
 
-    post {
+    /*post {
         always {
             emailext (
                 subject: "Build ${currentBuild.fullDisplayName}",
@@ -73,10 +73,10 @@ pipeline {
                 to: 'oussoumanesow0@gmail.com'  // Remplace ici par l'email des destinataires réels
             )
         }
-    }
+    }*/
 
 
-    /*post {
+    post {
         success {
             echo "✅ Build et déploiement réussis !"
             emailext(
@@ -86,10 +86,7 @@ pipeline {
                     🔗 Consultez les logs ici: ${env.BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
-                to: 'oussoumanesow0@gmail.com',
-                from :'jenkins@example.com',
-                replyTo: 'jenkins@example.com',
-                mimeType: 'text/html'
+                to: 'oussoumanesow0@gmail.com'
             )
         }
 
@@ -102,10 +99,7 @@ pipeline {
                     📜 Consultez les logs ici: ${env.BUILD_URL}
                 """,
                 to: 'oussoumanesow0@gmail.com',
-                from :'jenkins@example.com',
-                replyTo: 'jenkins@example.com',
-                mimeType: 'text/html'
             )
         }
-    }*/
+    }
 }
