@@ -75,8 +75,10 @@ pipeline {
                     🔗 Consultez les logs ici: ${env.BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
-                to: env.EMAIL_RECIPIENTS,
-                from :'jenkins@example.com'
+                to: 'oussoumanesow0@gmail.com',
+                from :'jenkins@example.com',
+                replyTo: 'jenkins@example.com',
+                mimeType: 'text/html'
             )
         }
 
@@ -88,8 +90,10 @@ pipeline {
                     ❗ Une erreur est survenue pendant le pipeline.  
                     📜 Consultez les logs ici: ${env.BUILD_URL}
                 """,
-                to: env.EMAIL_RECIPIENTS,
-                from :'jenkins@example.com'
+                to: 'oussoumanesow0@gmail.com',
+                from :'jenkins@example.com',
+                replyTo: 'jenkins@example.com',
+                mimeType: 'text/html'
             )
         }
     }
