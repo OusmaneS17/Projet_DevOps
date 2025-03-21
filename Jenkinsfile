@@ -69,15 +69,15 @@ pipeline {
         success {
             emailext subject: 'Pipeline Success',
                      body: 'Le pipeline a réussi.',
-                     to: 'oussoumanesow0@gmail.com'
+                     to: 'osow01289@gmail.com'
         }
         failure {
             emailext subject: 'Pipeline Failure',
                      body: 'Le pipeline a échoué.',
-                     to: 'oussoumanesow0@gmail.com'
+                     to: 'osow01289@gmail.com'
         }
     }
-    
+
     /*post {
         always {
             emailext(
