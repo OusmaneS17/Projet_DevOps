@@ -86,6 +86,7 @@ pipeline {
                     🔗 Consultez les logs ici: ${env.BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'oussoumanesow0@gmail.com'
             )
         }
@@ -98,6 +99,7 @@ pipeline {
                     ❗ Une erreur est survenue pendant le pipeline.  
                     📜 Consultez les logs ici: ${env.BUILD_URL}
                 """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'oussoumanesow0@gmail.com',
             )
         }
