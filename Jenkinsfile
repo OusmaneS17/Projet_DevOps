@@ -70,6 +70,7 @@ pipeline {
             emailext (
                 subject: "Build ${currentBuild.fullDisplayName}",
                 body: "Le build a ${currentBuild.result}. Voir les logs ici : ${env.BUILD_URL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'oussoumanesow0@gmail.com'  // Remplace ici par l'email des destinataires réels
             )
         }
@@ -86,7 +87,6 @@ pipeline {
                     🔗 Consultez les logs ici: ${env.BUILD_URL}  
                     🌍 Accédez à l’application sur : http://<IP_SERVEUR>:8000/
                 """,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'oussoumanesow0@gmail.com'
             )
         }
@@ -99,7 +99,6 @@ pipeline {
                     ❗ Une erreur est survenue pendant le pipeline.  
                     📜 Consultez les logs ici: ${env.BUILD_URL}
                 """,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'oussoumanesow0@gmail.com',
             )
         }
