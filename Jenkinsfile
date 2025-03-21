@@ -6,7 +6,7 @@ pipeline {
         VENV_DIR = 'venv'
         DOCKER_IMAGE = "django_image"
         DOCKER_CONTAINER = "container_app_django"
-        EMAIL_RECIPIENTS = "oussoumanesow0@gmail.com"
+        EMAIL_RECIPIENTS = "osow01289@gmail.com"
     }
 
     stages {
@@ -69,7 +69,7 @@ pipeline {
                 script {
                     emailext subject: 'Test Jenkins Email',
                              body: 'Ceci est un test d\'email depuis Jenkins.',
-                             to: 'oussoumanesow0@gmail.com'
+                             to: 'osow01289@gmail.com'
                 }
             }
         }
